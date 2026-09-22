@@ -115,3 +115,18 @@ def checkout(e):
     # display the receipt and clear the cart
     document.getElementById("show").innerHTML = receipt_summary
     my_cart = []
+
+def generate_sku(e):
+    document.getElementById('show').innerHTML = ""
+
+    category_variable = document.getElementById('category_id').value
+    product_name_variable = document.getElementById('prod_name_id').value
+    stock_qty = document.getElementById('stock_qty_id').value
+
+    if not product_name_variable:
+        document.getElementById('show').innerHTML = "Missing Product Name"
+        return
+
+    SKU_name_here = category_variable[:3].upper() + "-" + product_name_variable[:4].upper() + "-" + str(stock_qty)
+
+    document.getElementById('show').innerHTML = "SKU: " + SKU_name_here
