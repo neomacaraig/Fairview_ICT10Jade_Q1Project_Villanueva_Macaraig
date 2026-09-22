@@ -128,17 +128,16 @@ def generate_sku(e):
     prod_el = document.getElementById('prod_name_id')
     stock_el = document.getElementById('stock_qty_id')
 
-    # Guard clause: ensure all required elements exist on current page
     if not show_el or not cat_el or not prod_el or not stock_el:
         return
 
-    category_val = cat_el.value.strip()
-    prod_name_val = prod_el.value.strip()
-    stock_qty_val = stock_el.value.strip()
+    category_variable = cat_el.value.strip()
+    product_name_variable = prod_el.value.strip()
+    stock_qty = stock_el.value.strip()
 
-    if not prod_name_val:
-        show_el.innerHTML = "⚠️ Please enter a Product Name."
+    if not product_name_variable:
+        show_el.innerHTML = "Missing Product Name"
         return
 
-    sku_code = f"{category_val[:3].upper()}-{prod_name_val[:4].upper()}-{stock_qty_val}"
-    show_el.innerHTML = f"Generated SKU:\n\n{sku_code}"
+    sku_code = f"{category_variable[:3].upper()}-{product_name_variable[:4].upper()}-{stock_qty}"
+    show_el.innerHTML = f"SKU: {sku_code}"
