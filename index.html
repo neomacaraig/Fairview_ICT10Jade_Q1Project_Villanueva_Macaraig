@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fairview_ICT10Jade_Q1Project_Villanueva_Macaraig</title>
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
     
-    <!-- PyScript Core -->
     <link rel="stylesheet" href="https://pyscript.net/releases/2025.3.1/core.css" />
     <script type="module" src="https://pyscript.net/releases/2025.3.1/core.js"></script>
 
@@ -30,7 +28,6 @@
             min-height: 100vh;
         }
 
-        /* Navigation Bar */
         navbar {
             width: 100%;
             background-color: #171717;
@@ -64,7 +61,6 @@
             color: #00b074;
         }
 
-        /* Layout Panels */
         .main-container {
             display: flex;
             gap: 20px;
@@ -98,7 +94,6 @@
             justify-content: space-between;
         }
 
-        /* Section Visibility Toggle */
         .tab-section {
             display: none;
         }
@@ -106,7 +101,6 @@
             display: block;
         }
 
-        /* Typography & Form Elements */
         h1, h3 {
             font-family: 'Fredoka', sans-serif;
             letter-spacing: 0.5px;
@@ -157,7 +151,6 @@
             font-weight: 500;
         }
 
-        /* Buttons */
         button {
             font-family: 'Fredoka', sans-serif;
             background-color: #00704a;
@@ -196,7 +189,6 @@
             background-color: #b8972e;
         }
 
-        /* Display Output Box */
         #show {
             background-color: #0f0f0f;
             padding: 15px;
@@ -211,7 +203,6 @@
             margin-top: 10px;
         }
 
-        /* Info Card & Footer */
         .info-card {
             background: rgba(0, 112, 74, 0.1);
             padding: 12px;
@@ -241,21 +232,18 @@
 </head>
 <body>
 
-    <!-- Navigation Bar -->
     <navbar> 
         <div class="nav-container">
-            <span id="tab1-btn" class="nav-link active" onclick="switchTab('drinks')">☕ Drinks Order</span>
+            <span id="tab1-btn" class="nav-link active" onclick="switchTab('drinks')">Main</span>
             <span id="tab2-btn" class="nav-link inactive" onclick="switchTab('sku')">📊 SKU Generator</span>
         </div>
     </navbar>
 
     <div class="main-container">
-        <!-- Left Panel: Combined Content -->
         <div class="left-panel">
             
-            <!-- SECTION 1: DRINKS ORDER -->
             <div id="drinks-section" class="tab-section active-tab">
-                <h1>Main</h1>
+                <h1>☕ Drinks Order</h1>
                 <hr>
 
                 <label><strong>Choose Drink:</strong></label>
@@ -294,7 +282,6 @@
                 </div>
             </div>
 
-            <!-- SECTION 2: SKU GENERATOR -->
             <div id="sku-section" class="tab-section">
                 <h1>📊 Stock SKU Generator</h1>
                 <hr>
@@ -323,7 +310,6 @@
             </div>
         </div>
         
-        <!-- Right Panel: Output Display -->
         <div class="right-panel">
             <div>
                 <h3 id="right-panel-title">Order Receipt</h3>
@@ -335,8 +321,7 @@
             <button type="button" id="checkout-btn-element" py-click="checkout" class="checkout-btn">Checkout !</button>
         </div>
     </div>
-
-    <!-- Tab Switching Script -->
+    
     <script>
         function switchTab(tabName) {
             const drinksSec = document.getElementById('drinks-section');
