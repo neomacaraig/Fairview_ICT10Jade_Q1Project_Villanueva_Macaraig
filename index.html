@@ -3,183 +3,263 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fairview_ICT10Jade_Q1Project_Villanueva_Macaraig/title>
+    <title>Fairview_ICT10Jade_Q1Project_Villanueva_Macaraig</title>
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
     
+    <!-- PyScript Core -->
     <link rel="stylesheet" href="https://pyscript.net/releases/2025.3.1/core.css" />
     <script type="module" src="https://pyscript.net/releases/2025.3.1/core.js"></script>
+
     <style>
-            * {
-                box-sizing: border-box;
-            }
-            body {
-                background-color: #0f0f0f;
-                color: #f5f5f5;
-                font-family: 'Quicksand', sans-serif;   
-                margin: 0;
-                padding: 20px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-            }
-            .main-container {
-                display: flex;
-                gap: 20px;
-                width: 100%;
-                max-width: 1200px;
-                height: 90vh;
-            }
-            .left-panel {
-                width: 70%;
-                background: linear-gradient(145deg, #241812, #1a100b);
-                border: 2px solid #00704a;
-                padding: 25px;
-                border-radius: 16px;
-                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                overflow-y: auto;
-            }
-            .right-panel {
-                width: 30%;
-                background-color: #171717;
-                border: 2px solid #3d2314;
-                padding: 25px;
-                border-radius: 16px;
-                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-            }
-            h1, h3 {
-                font-family: 'Fredoka', sans-serif;
-                letter-spacing: 0.5px;
-            }
-            h1 {
-                color: #00704a;
-                margin-top: 0;
-                font-size: 28px;
-            }
-            h3 {
-                color: #00b074;
-                font-size: 18px;
-                margin-bottom: 8px;
-            }
-            hr {
-                border: 0;
-                height: 1px;
-                background: #00704a;
-                margin-bottom: 20px;
-            }
-            label {
-                font-size: 14px;
-                color: #d1d1d1;
-                font-weight: 600;
-            }
-            select, input[type="number"] {
-                padding: 10px;
-                border-radius: 8px;
-                border: 1px solid #00704a;
-                background-color: #120b08;
-                color: white;
-                width: 100%;
-                margin-top: 6px;
-                margin-bottom: 15px;
-                font-family: 'Quicksand', sans-serif;
-                font-size: 14px;
-            }
-            .size-group {
-                background: rgba(0, 112, 74, 0.08);
-                padding: 12px;
-                border-radius: 8px;
-                border: 1px dashed #00704a;
-                margin-bottom: 15px;
-            }
-            .size-group label {
-                cursor: pointer;
-                margin-left: 5px;
-                font-weight: 500;
-            }
-            button {
-                font-family: 'Fredoka', sans-serif;
-                background-color: #00704a;
-                color: white;
-                border: none;
-                padding: 12px 15px;
-                border-radius: 8px;
-                cursor: pointer;
-                font-weight: 500;
-                width: 100%;
-                margin-top: 10px;
-                font-size: 15px;
-                letter-spacing: 0.5px;
-                transition: background 0.2s ease;
-            }
-            button:hover {
-                background-color: #005c3c;
-            }
-            .clear-btn {
-                background-color: #9c2c2c;
-            }
-            .clear-btn:hover {
-                background-color: #7a2121;
-            }
-            .checkout-btn {
-                background-color: #d4af37; 
-                color: #121212;
-            }
-            .checkout-btn:hover {
-                background-color: #b8972e;
-            }
-            #show {
-                background-color: #0f0f0f;
-                padding: 15px;
-                border-radius: 8px;
-                border: 1px solid #3d2314;
-                flex-grow: 1;
-                overflow-y: auto;
-                white-space: pre-wrap;
-                font-family: 'Courier New', Courier, monospace;
-                font-size: 13px;
-                color: #00ff9d;
-                margin-top: 10px;
-            }
-            .footer-note {
-                font-size: 13px;
-                color: #00ff9d;
-                font-weight: 600;
-                text-align: center;
-                margin-top: 20px;
-                padding-top: 12px;
-                border-top: 1px dashed #00704a;
-                letter-spacing: 0.5px;
-            }
-                .remove-btn {
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #0f0f0f;
+            color: #f5f5f5;
+            font-family: 'Quicksand', sans-serif; 
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Navigation Bar */
+        navbar {
+            width: 100%;
+            background-color: #171717;
+            border-bottom: 2px solid #00704a;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: center;
+        }
+        .nav-container {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            gap: 25px;
+        }
+        .nav-link {
+            font-family: 'Fredoka', sans-serif;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: color 0.2s ease;
+            cursor: pointer;
+        }
+        .nav-link.active {
+            color: #00ff9d;
+        }
+        .nav-link.inactive {
+            color: #a3a3a3;
+        }
+        .nav-link:hover {
+            color: #00b074;
+        }
+
+        /* Layout Panels */
+        .main-container {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+            height: calc(100vh - 80px);
+            padding: 20px 0;
+            margin-top: 10px;
+        }
+        .left-panel {
+            width: 70%;
+            background: linear-gradient(145deg, #241812, #1a100b);
+            border: 2px solid #00704a;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow-y: auto;
+        }
+        .right-panel {
+            width: 30%;
+            background-color: #171717;
+            border: 2px solid #3d2314;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Section Visibility Toggle */
+        .tab-section {
+            display: none;
+        }
+        .tab-section.active-tab {
+            display: block;
+        }
+
+        /* Typography & Form Elements */
+        h1, h3 {
+            font-family: 'Fredoka', sans-serif;
+            letter-spacing: 0.5px;
+        }
+        h1 {
+            color: #00704a;
+            margin-top: 0;
+            font-size: 28px;
+        }
+        h3 {
+            color: #00b074;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #00704a;
+            margin-bottom: 20px;
+        }
+        label {
+            font-size: 14px;
+            color: #d1d1d1;
+            font-weight: 600;
+        }
+        select, input[type="text"], input[type="number"] {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #00704a;
+            background-color: #120b08;
+            color: white;
+            width: 100%;
+            margin-top: 6px;
+            margin-bottom: 15px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 14px;
+        }
+        .size-group {
+            background: rgba(0, 112, 74, 0.08);
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px dashed #00704a;
+            margin-bottom: 15px;
+        }
+        .size-group label {
+            cursor: pointer;
+            margin-left: 5px;
+            font-weight: 500;
+        }
+
+        /* Buttons */
+        button {
+            font-family: 'Fredoka', sans-serif;
+            background-color: #00704a;
+            color: white;
+            border: none;
+            padding: 12px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            width: 100%;
+            margin-top: 10px;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            transition: background 0.2s ease;
+        }
+        button:hover {
+            background-color: #005c3c;
+        }
+        .remove-btn {
             background-color: #d97706;
         }
         .remove-btn:hover {
             background-color: #b45309;
         }
+        .clear-btn {
+            background-color: #9c2c2c;
+        }
+        .clear-btn:hover {
+            background-color: #7a2121;
+        }
+        .checkout-btn {
+            background-color: #d4af37; 
+            color: #121212;
+        }
+        .checkout-btn:hover {
+            background-color: #b8972e;
+        }
 
-        
+        /* Display Output Box */
+        #show {
+            background-color: #0f0f0f;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #3d2314;
+            flex-grow: 1;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 13px;
+            color: #00ff9d;
+            margin-top: 10px;
+        }
+
+        /* Info Card & Footer */
+        .info-card {
+            background: rgba(0, 112, 74, 0.1);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid #00704a;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #fff;
+        }
+        .footer-note {
+            font-size: 13px;
+            color: #00ff9d;
+            font-weight: 600;
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 12px;
+            border-top: 1px dashed #00704a;
+            letter-spacing: 0.5px;
+        }
     </style>
 </head>
 <body>
 
+    <!-- Navigation Bar -->
+    <navbar> 
+        <div class="nav-container">
+            <span id="tab1-btn" class="nav-link active" onclick="switchTab('drinks')">☕ Drinks Order</span>
+            <span id="tab2-btn" class="nav-link inactive" onclick="switchTab('sku')">📊 SKU Generator</span>
+        </div>
+    </navbar>
+
     <div class="main-container">
-        <!-- main interface at 70% of the screen -->
+        <!-- Left Panel: Combined Content -->
         <div class="left-panel">
-            <div>
-                <h1>☕Drinks Order</h1>
+            
+            <!-- SECTION 1: DRINKS ORDER -->
+            <div id="drinks-section" class="tab-section active-tab">
+                <h1>☕ Drinks Order</h1>
                 <hr>
 
                 <label><strong>Choose Drink:</strong></label>
                 <select id="coffee">
-                    <!-- drinks selection -->
                     <option value="180">Mango Dragonfruit Lemonade - ₱180</option>
                     <option value="210">Pumpkin Spice Latte - ₱210</option>
                     <option value="195">White Chocolate - ₱195</option>
@@ -204,38 +284,88 @@
                 <label><strong>Quantity:</strong></label>
                 <input type="number" id="quantity" value="1" min="1">
 
-                    <button type="button" py-click="add_to_order">Add to Cart</button>
-    <button type="button" py-click="remove_last_item" class="remove-btn">Remove Last Item</button>
-    <button type="button" py-click="clear_order" class="clear-btn">Clear Cart</button>
+                <button type="button" py-click="add_to_order">Add to Cart</button>
+                <button type="button" py-click="remove_last_item" class="remove-btn">Remove Last Item</button>
+                <button type="button" py-click="clear_order" class="clear-btn">Clear Cart</button>
 
+                <div class="info-card">
+                    <span class="badge" style="background-color: #2b5278;">🌧️ Cozy Weather Vibe</span>
+                    <p><strong>Rainy Afternoon</strong><br><span style="font-size: 12px; color: #a3a3a3;">Perfect time for a warm Pumpkin Spice Latte or Hot Chocolate !</span></p>
+                </div>
             </div>
 
-            <div class="info-card">
-    <span class="badge" style="background-color: #2b5278;">🌧️ Cozy Weather Vibe</span>
-    <p><strong>Rainy Afternoon</strong><br><span style="font-size: 12px; color: #a3a3a3;">Perfect time for a warm Pumpkin Spice Latte or Hot Chocolate !</span></p>
-</div>
+            <!-- SECTION 2: SKU GENERATOR -->
+            <div id="sku-section" class="tab-section">
+                <h1>📊 Stock SKU Generator</h1>
+                <hr>
 
-            <!-- footer note for starbucks -->
+                <label><strong>Category:</strong></label>
+                <select id="category_id">
+                    <option value="Coffee">Coffee & Espresso</option>
+                    <option value="Tea">Tea & Beverages</option>
+                    <option value="Bakery">Bakery & Food</option>
+                    <option value="Merch">Merchandise</option>
+                </select>
+
+                <label><strong>Product Name:</strong></label>
+                <input type="text" id="prod_name_id" placeholder="e.g. Pumpkin Spice Latte">
+
+                <label><strong>Stock Quantity:</strong></label>
+                <input type="number" id="stock_qty_id" value="10" min="0">
+
+                <button type="button" py-click="generate_sku">Generate SKU</button>
+            </div>
+
             <div class="footer-note">
                  Inspiration taken from Starbucks :D
                  <br>
-                 Prince Villanueva, Neo Macaraig- 10Jade
-                 <br>
+                 Prince Villanueva, Neo Macaraig - 10Jade
             </div>
         </div>
-    
-        <!-- receipt display at the right side of the screen at 30% layout -->
+        
+        <!-- Right Panel: Output Display -->
         <div class="right-panel">
             <div>
-                <h3>Order Receipt</h3>
+                <h3 id="right-panel-title">Order Receipt</h3>
                 <hr style="background: #3d2314;">
             </div>
             
             <div id="show">Your cart is currently empty.</div>
 
-            <button type="button" py-click="checkout" class="checkout-btn">Checkout !</button>
+            <button type="button" id="checkout-btn-element" py-click="checkout" class="checkout-btn">Checkout !</button>
         </div>
     </div>
+
+    <!-- Tab Switching Script -->
+    <script>
+        function switchTab(tabName) {
+            const drinksSec = document.getElementById('drinks-section');
+            const skuSec = document.getElementById('sku-section');
+            const tab1Btn = document.getElementById('tab1-btn');
+            const tab2Btn = document.getElementById('tab2-btn');
+            const title = document.getElementById('right-panel-title');
+            const checkoutBtn = document.getElementById('checkout-btn-element');
+            const showBox = document.getElementById('show');
+
+            if (tabName === 'drinks') {
+                drinksSec.classList.add('active-tab');
+                skuSec.classList.remove('active-tab');
+                tab1Btn.className = 'nav-link active';
+                tab2Btn.className = 'nav-link inactive';
+                title.innerText = 'Order Receipt';
+                checkoutBtn.style.display = 'block';
+                showBox.innerText = 'Your cart is currently empty.';
+            } else {
+                skuSec.classList.add('active-tab');
+                drinksSec.classList.remove('active-tab');
+                tab2Btn.className = 'nav-link active';
+                tab1Btn.className = 'nav-link inactive';
+                title.innerText = 'Generated SKU Result';
+                checkoutBtn.style.display = 'none';
+                showBox.innerText = 'Generated SKU will appear here.';
+            }
+        }
+    </script>
 
     <script type="py" src="main.py"></script>
 </body>
