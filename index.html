@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fairview_ICT10Jade_Q1Project_Villanueva_Macaraig</title>
     
+    <!-- google fonts used -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
     
+    <!-- pyscript core styles and javascript -->
     <link rel="stylesheet" href="https://pyscript.net/releases/2025.3.1/core.css" />
     <script type="module" src="https://pyscript.net/releases/2025.3.1/core.js"></script>
 
@@ -16,6 +18,7 @@
         * {
             box-sizing: border-box;
         }
+        /* layout and background theme */
         body {
             background-color: #0f0f0f;
             color: #f5f5f5;
@@ -28,6 +31,7 @@
             min-height: 100vh;
         }
 
+        /* navigation bar */
         navbar {
             width: 100%;
             background-color: #171717;
@@ -61,6 +65,7 @@
             color: #00b074;
         }
 
+        /* main container */
         .main-container {
             display: flex;
             gap: 20px;
@@ -70,6 +75,7 @@
             padding: 20px 0;
             margin-top: 10px;
         }
+        /* left panel */
         .left-panel {
             width: 70%;
             background: linear-gradient(145deg, #241812, #1a100b);
@@ -82,6 +88,7 @@
             justify-content: space-between;
             overflow-y: auto;
         }
+        /* right panel */
         .right-panel {
             width: 30%;
             background-color: #171717;
@@ -101,6 +108,7 @@
             display: block;
         }
 
+        /* heading styles */
         h1, h3 {
             font-family: 'Fredoka', sans-serif;
             letter-spacing: 0.5px;
@@ -121,6 +129,7 @@
             background: #00704a;
             margin-bottom: 20px;
         }
+        
         label {
             font-size: 14px;
             color: #d1d1d1;
@@ -189,6 +198,7 @@
             background-color: #b8972e;
         }
 
+        /* receipt output box */
         #show {
             background-color: #0f0f0f;
             padding: 15px;
@@ -218,6 +228,7 @@
             font-weight: bold;
             color: #fff;
         }
+        /* page footer & credits */
         .footer-note {
             font-size: 13px;
             color: #00ff9d;
@@ -232,6 +243,7 @@
 </head>
 <body>
 
+    <!-- main navigation bar -->
     <navbar> 
         <div class="nav-container">
             <span id="tab1-btn" class="nav-link active" onclick="switchTab('drinks')">Main</span>
@@ -240,12 +252,15 @@
     </navbar>
 
     <div class="main-container">
+        <!-- left side panel -->
         <div class="left-panel">
             
+            <!-- drink order menu -->
             <div id="drinks-section" class="tab-section active-tab">
                 <h1>☕ Drinks Order</h1>
                 <hr>
 
+                <!-- menu selection dropdown -->
                 <label><strong>Choose Drink:</strong></label>
                 <select id="coffee">
                     <option value="180">Mango Dragonfruit Lemonade - ₱180</option>
@@ -259,6 +274,7 @@
                     <option value="190">Java Chip Frappuccino - ₱190</option>
                 </select>
 
+                <!-- buttons for cup size -->
                 <div class="size-group">
                     <h3>Select Size</h3>
                     <input type="radio" id="tall" name="size" value="0" checked>
@@ -269,9 +285,11 @@
                     <label for="venti">Venti (+₱50)</label>
                 </div>
 
+                <!-- input field -->
                 <label><strong>Quantity:</strong></label>
                 <input type="number" id="quantity" value="1" min="1">
 
+                <!-- cart buttons with pyscript -->
                 <button type="button" py-click="add_to_order">Add to Cart</button>
                 <button type="button" py-click="remove_last_item" class="remove-btn">Remove Last Item</button>
                 <button type="button" py-click="clear_order" class="clear-btn">Clear Cart</button>
@@ -282,27 +300,29 @@
                 </div>
             </div>
 
+            <!-- sku code generator -->
             <div id="sku-section" class="tab-section">
                 <h1>📊 Stock SKU Generator</h1>
                 <hr>
 
+                <!-- category selection -->
                 <label><strong>Category:</strong></label>
                 <select id="category_id">
-                    <option value="Coffee">Coffee & Espresso</option>
-                    <option value="Tea">Tea & Beverages</option>
-                    <option value="Bakery">Bakery & Food</option>
-                    <option value="Merch">Merchandise</option>
+                    <option value="Coffee">Coffee</option>
+                    <option value="Tea">Other Beverages</option>
                 </select>
 
                 <label><strong>Product Name:</strong></label>
                 <input type="text" id="prod_name_id" placeholder="e.g. Pumpkin Spice Latte">
 
+                <!-- inventory stock quantity -->
                 <label><strong>Stock Quantity:</strong></label>
                 <input type="number" id="stock_qty_id" value="10" min="0">
 
                 <button type="button" py-click="generate_sku">Generate SKU</button>
             </div>
 
+            <!-- footer credit display -->
             <div class="footer-note">
                  Inspiration taken from Starbucks :D
                  <br>
@@ -310,14 +330,17 @@
             </div>
         </div>
         
+        <!-- right side panel -->
         <div class="right-panel">
             <div>
                 <h3 id="right-panel-title">Order Receipt</h3>
                 <hr style="background: #3d2314;">
             </div>
             
+            <!-- output window for cart summary and sku output -->
             <div id="show">Your cart is currently empty.</div>
 
+            <!-- checkout button -->
             <button type="button" id="checkout-btn-element" py-click="checkout" class="checkout-btn">Checkout !</button>
         </div>
     </div>
@@ -352,6 +375,7 @@
         }
     </script>
 
+    <!-- link external via pyscript -->
     <script type="py" src="main.py"></script>
 </body>
 </html>
