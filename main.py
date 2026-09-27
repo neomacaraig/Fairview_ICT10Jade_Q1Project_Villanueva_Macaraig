@@ -6,16 +6,19 @@ my_cart = []
 def add_to_order(e):
     global my_cart
     
+    # get reference to coffee select dropdown
     coffee_dropdown = document.getElementById("coffee")
     if not coffee_dropdown:
         return
 
+    # get selected drink name and base price
     selected_index = coffee_dropdown.selectedIndex
     drink_option = coffee_dropdown.options.item(selected_index)
     
     drink_name = drink_option.text.split(" - ")[0]
     drink_price = float(coffee_dropdown.value)
     
+    # default size settings
     size_price = 0.0
     size_name = "Tall"
     
@@ -39,6 +42,7 @@ def add_to_order(e):
         
     item_total = (drink_price + size_price) * qty
     
+    # store order item dictionary in cart
     my_cart.append({
         "name": drink_name,
         "size": size_name,
@@ -46,6 +50,7 @@ def add_to_order(e):
         "total": item_total
     })
     
+    # update receipt panel
     display_receipt()
 
 def remove_last_item(e):
@@ -56,6 +61,7 @@ def remove_last_item(e):
 
 def clear_order(e):
     global my_cart
+    # reset cart and clear output box
     my_cart = []
     show_el = document.getElementById("show")
     if show_el:
@@ -66,6 +72,7 @@ def display_receipt():
     if not show_el:
         return
 
+    # handle empty cart state
     if len(my_cart) == 0:
         show_el.innerHTML = "Your cart is empty."
         return
@@ -73,10 +80,12 @@ def display_receipt():
     receipt_text = ""
     subtotal = 0.0
     
+    # loop through items to build receipt
     for item in my_cart:
         receipt_text += f"{item['qty']}x {item['name']} ({item['size']}) - ₱{item['total']:.2f}\n"
         subtotal += item['total']
         
+    # calculate vat and total amount
     vat = subtotal * 0.12
     total_amount = subtotal + vat
     
@@ -93,14 +102,17 @@ def checkout(e):
     if not show_el:
         return
 
+    # validate non-empty cart before checkout
     if len(my_cart) == 0:
         show_el.innerHTML = "Cart is empty! Add items first."
         return
         
+    # calculate final values
     subtotal = sum(item['total'] for item in my_cart)
     vat = subtotal * 0.12
     total_amount = subtotal + vat
     
+    # final paid receipt layout
     receipt_summary = "==============================\n"
     receipt_summary += "         Official Receipt       \n"
     receipt_summary += "==============================\n\n"
@@ -120,10 +132,12 @@ def checkout(e):
     receipt_summary += "     Have a nice day!         \n"
     receipt_summary += "=============================="
     
+    # output final receipt and clear global cart
     show_el.innerHTML = receipt_summary
     my_cart = []
 
 def generate_sku(e):
+    # grab element references for sku creation tab
     show_el = document.getElementById('show')
     cat_el = document.getElementById('category_id')
     prod_el = document.getElementById('prod_name_id')
@@ -140,5 +154,6 @@ def generate_sku(e):
         show_el.innerHTML = "Missing Product Name"
         return
 
+    # construct sku string using category, product, and stock quantity
     sku_code = f"{category_variable[:3].upper()}-{product_name_variable[:4].upper()}-{stock_qty}"
     show_el.innerHTML = f"SKU: {sku_code}"
