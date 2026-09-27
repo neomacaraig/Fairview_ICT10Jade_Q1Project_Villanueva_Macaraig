@@ -157,3 +157,28 @@ def generate_sku(e):
     # construct sku string using category, product, and stock quantity
     sku_code = f"{category_variable[:3].upper()}-{product_name_variable[:4].upper()}-{stock_qty}"
     show_el.innerHTML = f"SKU: {sku_code}"
+
+
+# references:
+
+# MDN Web Docs. (2025, February 18). Display - CSS: Cascading style sheets. Mozilla 
+   # Developer Network. https://mozilla.org
+
+# MDN Web Docs. (2025, April 12). Element: innerHTML property. Mozilla Developer Network. 
+  #  https://mozilla.org
+
+# Python Software Foundation. (2026). Text sequence type — str (Built-in types: String 
+   # methods). Python 3.13 Documentation. https://python.org
+
+# PyScript Team. (2025). PyScript core user guide: Interacting with the DOM and handling 
+    # events. Anaconda Inc. https://pyscript.net
+
+# W3Schools. (2025). How to create toggle tabs. Refs. Toggleable Tabs JavaScript 
+    # Components Guide. https://w3schools.com
+
+# Real Python. (2024, November 30). Python's f-string for string interpolation and formatting. 
+    # https://realpython.com/python-f-strings/
+
+# MDN Web Docs. (2026, February 19). The Strong Importance element. 
+    # https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/strong
+
